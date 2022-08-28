@@ -61,7 +61,7 @@
       <label for="password_confirm">Подвердить пароль</label><br>
       <input type="password" name="password_confirm" required><br>
       <input type="checkbox" name="admin_confirm" value="1">
-      <label for="admin_confirm">Администратор</label><br>
+      <label for="admin_confirm">Администратор (тестовый режим)</label><br>
       <label for="age">Возраст</label><br>
       <input type="number" name="age" min="10" max="100" required><br>
       <label for="gender">Пол</label>
