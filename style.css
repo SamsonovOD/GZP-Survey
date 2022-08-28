@@ -1,0 +1,130 @@
+﻿/* Основные */
+html {
+  background: repeat url("bg.png");
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  padding-left: 10px;
+  margin: 5px;
+}
+
+.login_form input:not(#login_remember) {
+  width: 90%;
+  margin-left: 10px;
+}
+
+/* Заглавная */
+.header {
+  border: 1px solid black;
+  background-color: rgba(256, 256, 256, 0.5);
+  margin: 10px;
+  padding: 10px;
+}
+
+.header h1 {
+  display: inline-block;
+}
+
+.page {
+  display: flex;
+}
+
+#main_page, #profile_page, #login_bar {
+  border: 1px solid black;
+  background-color: rgba(256, 256, 256, 0.5);
+  margin: 10px;
+}
+
+#main_page, #profile_page {
+  flex-grow: 100;
+}
+
+.survey_window, .profile_window {
+  width: 99%;
+  height: 100vh;
+}
+
+#login_bar {
+  width: 15%;
+  padding: 10px;
+}
+
+.profile {  
+  margin: 5px;
+}
+
+#register {
+  display: none;
+  border: 1px solid black;
+  background-color: LightGray;
+  z-index: 1;
+  position: fixed;
+  top: 40px;
+  left: 40%;
+}
+
+/* Опросник */
+.survey {  
+  background-color: rgba(256, 256, 256, 0.5);
+  padding: 10px;
+}
+
+.draglist {
+  padding-left: 0;
+}
+
+.dragitem {
+  border: 1px solid black;
+  width: 80%;
+  padding: 5px;
+  list-style: none;
+}
+
+.dragitem:hover {
+  cursor: grab;
+}
+
+.textbox {
+  width: 80%;
+  height: 10vh;
+  margin-top: 1.5em;
+}
+
+.insertbox {
+  display: none;
+  border: 1px dashed black;
+  height: 1.5em;
+}
+
+#secret_survey_check {
+  display: none;
+}
+
+/* Профиль */
+table, th, td {
+  border: 1px solid black;
+}
+
+td:first-child {
+  width: 40%;
+}
+
+.question_list {
+  border: 1px solid black;
+  list-style: none;
+}
+
+.line_btn {
+  position: absolute;
+  right: 5%;
+}
+
+.line_btn input {
+  padding: 0px;
+  clear: both;
+}
+
+li > ul {
+  margin: 0px;
+}
