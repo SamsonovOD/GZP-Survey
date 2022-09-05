@@ -9,7 +9,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Опросник ВНИИГАЗ</title>
+  <title>Опросник</title>
   <link rel="icon" type="image/x-icon" href="favicon.circ">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,8 +17,8 @@
 <body>
   <br>
   <div class="header">
-    <a href="https://vniigaz.gazprom.ru/"><img src="logo.jpg" height="80px"></img></a>
-    <h1>Портал Анкетирования ВНИИГАЗ</h1>
+    <a href="google.com"><img src="corporate-company-logo.png" height="80px"></img></a>
+    <h1>Портал Анкетирования</h1>
     <a href="index.php">Вернуться на главную</a>.
   </div>
 
@@ -72,7 +72,7 @@
   
   <div class="footer">
     <hr>
-    <p>Самсонов Олег, Алексей Кулешин, Москва 2022  <a href="https://github.com/SamsonovOD/GZP-Task1-Survey">GitHub код</a></p>
+    <p>Самсонов Олег, Москва 2022</p>
   <div>
   <script src="script.js"></script>
   <script>
