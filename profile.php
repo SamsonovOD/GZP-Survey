@@ -16,17 +16,36 @@
 <body>
 <?php
   function drawTable($full, $user_id, $conn){    
-    $sql_responses = 'SELECT title, description, type, user_id, answers FROM responses ';
+    $sql_responses = 'SELECT responses.survey_id, title, responses.question_id, description, type, user_id, answers FROM responses ';
     $sql_responses .= 'INNER JOIN surveys ON responses.survey_id = surveys.survey_id ';
     $sql_responses .= 'INNER JOIN questions ON responses.question_id = questions.question_id ';
     if(!$full){
-      $sql_responses .= 'WHERE user_id = '.$user_id;
+      $sql_responses .= 'WHERE user_id = '.$user_id.' ';
     }
+    $sql_responses .= 'ORDER BY survey_id, responses.question_id ';
     $result_responses = $conn->query($sql_responses);
     if ($result_responses->num_rows != 0){
       $first_row = True;
-      echo '<table>';
+      $current_title = "";
+      if($full){
+        echo '<table class="full_table">';
+      } else {
+        echo '<table>';
+      }
       while($response_row = $result_responses->fetch_assoc()){
+        if($first_row){
+          $current_title = $response_row['title'];
+        }
+        if($current_title != $response_row['title']){          
+          $first_row = True;
+          $current_title = $response_row['title'];
+          echo '</table>';
+          if($full){
+            echo '<table class="full_table">';
+          } else {
+            echo '<table>';
+          }
+        }
         if($first_row){
           echo '<caption><b>'.$response_row['title'].'</b></caption>';
           echo '<tr><th>Вопрос</th>';
@@ -34,7 +53,7 @@
           if($full){
             echo '<th>Пользователь</th>';
           }
-          echo '<th>Ответ</th></tr>';
+          echo '<th>Ответ</th></tr>';    
           $first_row = False;
         }
         echo '<tr>';
@@ -136,6 +155,11 @@
           echo '<h1>Все ответы</h1>';
           drawTable(True, $user_id, $conn);
           
+          echo '<h1>Статистика</h1>';
+          echo '<div id="canvasContainer">';
+          echo '<canvas id="graphCanvas"></canvas>';
+          echo '</div>';
+          
           echo '<h1>Все вопросы</h1>';
           $sql_surveys = 'SELECT * FROM surveys';
           $result_surveys = $conn->query($sql_surveys);
@@ -186,6 +210,9 @@
   }
 ?>
 </body>
-
+  <script src="script.js"></script>
+  <script>
+    displayStats();
+  </script>
 </html>
 <?php $conn->close(); ?>

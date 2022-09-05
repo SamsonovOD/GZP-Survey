@@ -88,7 +88,7 @@
                 $sql_answer .= $_POST['survey_id'].', ';
                 $sql_answer .= str_replace('answer_', '', $key).', ';
                 if (is_array($answer)){
-                  $sql_answer .= '"'.implode(", ", $answer).'"';
+                  $sql_answer .= '"'.implode("; ", $answer).'"';
                 } else {
                   $sql_answer .= '"'.$answer.'"';
                 }
